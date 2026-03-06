@@ -814,6 +814,71 @@ h1, h2, h3 {
   margin-bottom: 20px;
 }
 
+/* ===== Story Timeline ===== */
+.story-timeline {
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+.story-timeline h2 {
+  font-size: 22px;
+  color: var(--navy);
+  margin-bottom: 28px;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 28px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--gold-dark);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 20px;
+  padding-left: 24px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 7px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold-dark);
+  border: 2px solid var(--white);
+  box-shadow: 0 0 0 2px var(--gold-dark);
+}
+
+.timeline-year {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 15px;
+  min-width: 50px;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.timeline-event {
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
 .story-gallery {
   margin-top: 48px;
 }
