@@ -6,12 +6,25 @@ document.addEventListener('DOMContentLoaded', function() {
     toggle.addEventListener('click', function() {
       nav.classList.toggle('open');
     });
-    // Close menu when clicking a link
+    // Close menu when clicking a link (but not dropdown parent)
     nav.querySelectorAll('a').forEach(function(a) {
-      a.addEventListener('click', function() {
-        nav.classList.remove('open');
-      });
+      if (!a.closest('.nav-dropdown') || a.closest('.dropdown-menu')) {
+        a.addEventListener('click', function() {
+          nav.classList.remove('open');
+        });
+      }
     });
+    // Mobile dropdown toggle
+    var dropdown = nav.querySelector('.nav-dropdown');
+    if (dropdown) {
+      var dropdownLink = dropdown.querySelector(':scope > a');
+      dropdownLink.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          dropdown.classList.toggle('open');
+        }
+      });
+    }
   }
 });
 
